@@ -1,14 +1,16 @@
 package com.api.challenge.infrastructure.persistence.entity;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter
+@Getter
 @Builder
 @Entity
 @Table(name = "users")

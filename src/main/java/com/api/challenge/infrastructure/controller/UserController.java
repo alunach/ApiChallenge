@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.URI;
+
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
@@ -21,9 +23,12 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<?> register(@RequestBody UserRequest request) {
+    public ResponseEntity<UserResponse> register(@RequestBody UserRequest request) {
         User user = UserMapper.toDomain(request);
         UserResponse response = registerUserUseCase.register(user);
-        return ResponseEntity.ok(response);
+
+        return ResponseEntity
+                .created(URI.create("/api/users/" + response.getId()))
+                .body(response);
     }
 }
