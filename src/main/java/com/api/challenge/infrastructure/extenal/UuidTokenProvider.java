@@ -1,4 +1,4 @@
-package com.api.challenge.infrastructure.extenal;
+/*package com.api.challenge.infrastructure.extenal;
 
 import com.api.challenge.domain.model.User;
 import com.api.challenge.domain.port.output.TokenProviderPort;
@@ -12,4 +12,4 @@ public class UuidTokenProvider implements TokenProviderPort {
     public String generateToken(User user) {
         return UUID.randomUUID().toString();
     }
-}
+}*/

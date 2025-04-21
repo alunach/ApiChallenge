@@ -34,7 +34,7 @@ public class UserMapper {
 
     public static UserEntity mapToUserEntity(User user, TokenProviderPort tokenProvider) {
         LocalDateTime now = LocalDateTime.now();
-        String token = tokenProvider.generateToken(user);
+        String token = tokenProvider.generateToken(user.getEmail());
 
         return UserEntity.builder()
                 .name(user.getName())
